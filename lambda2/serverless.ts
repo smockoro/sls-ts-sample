@@ -1,13 +1,15 @@
 import type { AWS } from '@serverless/typescript';
 
 import hello from '@functions/hello';
+import fileChangePropagator from '@functions/fileChangePropagator';
 
 const serverlessConfiguration: AWS = {
   service: 'sls-sample',
   frameworkVersion: '3',
   plugins: [
     'serverless-esbuild',
-    //'serverless-plugin-typescript',
+    // 'serverless-plugin-typescript',
+    'serverless-s3-local',
     'serverless-dynamodb-local',
     'serverless-offline',
   ],
@@ -24,7 +26,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { hello },
+  functions: { hello, fileChangePropagator },
   package: { individually: true },
   custom: {
     esbuild: {

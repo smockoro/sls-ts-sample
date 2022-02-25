@@ -6,6 +6,16 @@
     ],
     "jsRules": {},
     "rules": {
+        "no-implicit-dependencies": {
+            "severity": "warn"
+        },
+        "no-duplicate-imports": {
+            "severity": "off"
+        },
+        "no-console": {
+            "severity": "warn" // temporary
+        },
+        "@typescript-eslint/no-duplicate-imports": ["error"],
         "prettier": [
             true, {
                 "printWidth": 80,
