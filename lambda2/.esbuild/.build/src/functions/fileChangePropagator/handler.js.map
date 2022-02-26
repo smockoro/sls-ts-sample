@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../src/functions/fileChangePropagator/handler.ts"],
+  "sourcesContent": ["import { Callback, S3Event } from 'aws-lambda';\n\nconst fileChangePropagator = async (event: S3Event, callback: Callback) => {\n  console.log('start s3 file get');\n  const s3Record = event.Records[0].s3;\n  const srcBucket = s3Record.bucket.name;\n\n  console.log('file get from ' + srcBucket);\n\n  const fileExtension = decodeURIComponent(\n    s3Record.object.key.replace(/\\+/g, ' ')\n  );\n  const extMatch = fileExtension.match(/\\.([^.]*)$/);\n  if (!extMatch) {\n    callback(new Error('Could not determine file extension.'));\n    return;\n  }\n\n  // TODO:Download and produce to Kafka\n\n  console.log('end of s3 file get');\n};\n\nexport const main = fileChangePropagator;\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAEA,IAAM,uBAAuB,OAAO,OAAgB,aAAuB;AACzE,UAAQ,IAAI;AACZ,QAAM,WAAW,MAAM,QAAQ,GAAG;AAClC,QAAM,YAAY,SAAS,OAAO;AAElC,UAAQ,IAAI,mBAAmB;AAE/B,QAAM,gBAAgB,mBACpB,SAAS,OAAO,IAAI,QAAQ,OAAO;AAErC,QAAM,WAAW,cAAc,MAAM;AACrC,MAAI,CAAC,UAAU;AACb,aAAS,IAAI,MAAM;AACnB;AAAA;AAKF,UAAQ,IAAI;AAAA;AAGP,IAAM,OAAO;",
+  "names": []
+}
