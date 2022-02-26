@@ -52,15 +52,11 @@ const createProducts: ValidatedEventAPIGatewayProxyEvent<
     const validateRes = await dynamoDbClient.get(validateParams).promise();
     if (validateRes.Item) {
       logger.warn('Product already exists');
-      return formatJSONResponse({
-        message: 'Product already exists',
-      });
+      throw new Error('Product already exists');
     }
   } catch (err) {
     logger.error(err);
-    return formatJSONResponse({
-      message: 'Internal Server Error',
-    });
+    throw new Error(`Internal Server Error : ${err}`);
   }
 
   try {
@@ -70,10 +66,7 @@ const createProducts: ValidatedEventAPIGatewayProxyEvent<
     });
   } catch (err) {
     logger.error(err.message);
-    return formatJSONResponse({
-      message: 'Internal Server Error',
-      err,
-    });
+    throw new Error(`Internal Server Error : ${err}`);
   }
 };
 

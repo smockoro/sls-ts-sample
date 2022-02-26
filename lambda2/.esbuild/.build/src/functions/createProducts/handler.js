@@ -3372,16 +3372,12 @@ var createProducts = async (event, context) => {
   try {
     const validateRes = await dynamoDbClient.get(validateParams).promise();
     if (validateRes.Item) {
-      logger.error("Product already exists");
-      return formatJSONResponse({
-        message: "Product already exists"
-      });
+      logger.warn("Product already exists");
+      throw new Error("Product already exists");
     }
   } catch (err) {
     logger.error(err);
-    return formatJSONResponse({
-      message: "Internal Server Error"
-    });
+    throw new Error(`Internal Server Error : ${err}`);
   }
   try {
     await dynamoDbClient.put(params).promise();
@@ -3390,10 +3386,7 @@ var createProducts = async (event, context) => {
     });
   } catch (err) {
     logger.error(err.message);
-    return formatJSONResponse({
-      message: "Internal Server Error",
-      err
-    });
+    throw new Error(`Internal Server Error : ${err}`);
   }
 };
 var main = middyfy(createProducts);
