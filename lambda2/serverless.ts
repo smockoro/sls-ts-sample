@@ -39,6 +39,50 @@ const serverlessConfiguration: AWS = {
       platform: 'node',
       concurrency: 10,
     },
+    dynamodb: {
+      stages: ['dev'],
+      start: {
+        inMemory: true,
+        migrate: true,
+        seed: true,
+      },
+      seed: {
+        development: {
+          sources: [
+            {
+              table: 'products',
+              sources: ['./local-dynamodb/products.json'],
+            },
+          ],
+        },
+      },
+    },
+  },
+  resources: {
+    Resources: {
+      products: {
+        Type: 'AWS::DynamoDB::Table',
+        Properties: {
+          TableName: 'products',
+          AttributeDefinitions: [
+            {
+              AttributeName: 'email',
+              AttributeType: 'S',
+            },
+          ],
+          KeySchema: [
+            {
+              AttributeName: 'email',
+              KeyType: 'HASH',
+            },
+          ],
+          ProvisionedThroughput: {
+            ReadCapacityUnits: 1,
+            WriteCapacityUnits: 1,
+          },
+        },
+      },
+    },
   },
 };
 
