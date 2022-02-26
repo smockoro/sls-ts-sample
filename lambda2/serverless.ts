@@ -2,6 +2,7 @@ import type { AWS } from '@serverless/typescript';
 
 import hello from '@functions/hello';
 import fileChangePropagator from '@functions/fileChangePropagator';
+import createProducts from '@functions/createProducts';
 
 const serverlessConfiguration: AWS = {
   service: 'sls-sample',
@@ -26,7 +27,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { hello, fileChangePropagator },
+  functions: { hello, fileChangePropagator, createProducts },
   package: { individually: true },
   custom: {
     esbuild: {
@@ -66,13 +67,13 @@ const serverlessConfiguration: AWS = {
           TableName: 'products',
           AttributeDefinitions: [
             {
-              AttributeName: 'email',
+              AttributeName: 'id',
               AttributeType: 'S',
             },
           ],
           KeySchema: [
             {
-              AttributeName: 'email',
+              AttributeName: 'id',
               KeyType: 'HASH',
             },
           ],

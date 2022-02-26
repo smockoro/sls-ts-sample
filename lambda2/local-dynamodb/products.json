@@ -1,5 +1,38 @@
 [
   {
-    "email": "tarotora51@gmail.com"
+    "id": "1",
+    "name": "Product 1",
+    "price": "100.00",
+    "description": "This is product 1.",
+    "rating": 4,
+    "canOrder": true,
+    "image": "https://image.sample.com/1.jpg",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "updatedAt": "2019-01-01T00:00:00.000Z",
+    "deletedAt": null
+  },
+  {
+    "id": "2",
+    "name": "Product 2",
+    "price": "200.00",
+    "description": "This is product 2.",
+    "rating": 5,
+    "canOrder": false,
+    "image": "https://image.sample.com/2.jpg",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "updatedAt": "2019-01-01T00:00:00.000Z",
+    "deletedAt": "2019-01-02T00:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "Product 3",
+    "price": "300.00",
+    "description": "This is product 3.",
+    "rating": 3,
+    "canOrder": true,
+    "image": "https://image.sample.com/3.jpg",
+    "createdAt": "2019-01-01T00:00:00.000Z",
+    "updatedAt": "2019-01-01T00:00:00.000Z",
+    "deletedAt": null
   }
 ]
