@@ -1,8 +1,9 @@
 import type { AWS } from '@serverless/typescript';
 
-import hello from '@functions/hello';
-import fileChangePropagator from '@functions/fileChangePropagator';
-import createProducts from '@functions/createProducts';
+import hello from './src/functions/hello';
+import fileChangePropagator from './src/functions/fileChangePropagator';
+import createProducts from './src/functions/createProducts';
+import findProducts from './src/functions/findProducts';
 
 const serverlessConfiguration: AWS = {
   service: 'sls-sample',
@@ -27,7 +28,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { hello, fileChangePropagator, createProducts },
+  functions: { hello, fileChangePropagator, createProducts, findProducts },
   package: { individually: true },
   custom: {
     esbuild: {

@@ -13,6 +13,7 @@ const createProducts: ValidatedEventAPIGatewayProxyEvent<
 > = async (event, context: Context) => {
   logger.addContext(context);
 
+  // TODO: switch for envVal.
   const credentials = new Credentials({
     accessKeyId: 'dummy',
     secretAccessKey: 'dummy',
