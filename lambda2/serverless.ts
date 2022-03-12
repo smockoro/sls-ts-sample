@@ -4,6 +4,11 @@ import hello from './src/functions/hello';
 import fileChangePropagator from './src/functions/fileChangePropagator';
 import createProducts from './src/functions/createProducts';
 import findProducts from './src/functions/findProducts';
+// import updateProducts from './src/functions/updateProducts';
+// import deleteProducts from './src/functions/deleteProducts';
+import findOneProduct from './src/functions/findOneProduct';
+// import searchProducts from './src/functions/searchProducts';
+import deleteCancelOrder from './src/functions/deleteCancelOrder';
 
 const serverlessConfiguration: AWS = {
   service: 'sls-sample',
@@ -28,7 +33,17 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { hello, fileChangePropagator, createProducts, findProducts },
+  functions: {
+    hello,
+    fileChangePropagator,
+    createProducts,
+    findProducts,
+    // updateProducts,
+    // deleteProducts,
+    findOneProduct,
+    // searchProducts,
+    deleteCancelOrder,
+  },
   package: { individually: true },
   custom: {
     esbuild: {

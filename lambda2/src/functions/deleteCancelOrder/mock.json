@@ -1,0 +1,20 @@
+{
+  "Records": [
+    {
+      "messageId": "c6c9b5f0-c5e7-11e8-b3ce-6b8f8f8f8f8f",
+      "receiptHandle": "MessageReceiptHandle",
+      "body": "{\"orderId\":\"2\"}",
+      "attribute": {
+        "ApproximateReceiveCount": "1",
+        "SentTimestamp": "1533819974279",
+        "SenderId": "AROAJYZLZJZWQ",
+        "ApproximateFirstReceiveTimestamp": "1533819974279"
+      },
+      "messageAttributes": {},
+      "md5OfBody": "0123456789abcdef0123456789abcdef",
+      "eventSource": "aws:sqs",
+      "eventSourceARN": "arn:aws:sqs:ap-northeast-1:123456789012:MyQueue",
+      "awsRegion": "ap-northeast-1"
+    }
+  ]
+}
