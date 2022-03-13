@@ -5,7 +5,11 @@
   "main": "serverless.ts",
   "scripts": {
     "test": "jest --config jest.config.ts",
-    "lint": "tslint 'src/**/*.ts'"
+    "test:log-coverage": "jest --coverage --config jest.config.ts",
+    "test:coverage": "npm run test -- --coverage --silent --testLocationInResults --ci --json --outputFile=\"./test/coverage/coverage-report.json\"",
+    "lint": "tslint 'src/**/*.ts' --config ./tslint.json ",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:report": "npm run lint -- --format checkstyle --out ./test/results/tslint-report.xml"
   },
   "engines": {
     "node": ">=14.15.0"
@@ -27,6 +31,7 @@
     "dynamodb-admin": "^4.1.0",
     "esbuild": "^0.14.11",
     "jest": "^27.5.1",
+    "jest-junit": "^13.0.0",
     "json-schema-to-ts": "^1.5.0",
     "mysql": "github:mysqljs/mysql",
     "prettier": "^2.5.1",

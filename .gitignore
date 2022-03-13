@@ -310,3 +310,5 @@ tags
 # Persistent undo
 [._]*.un~
 
+# Test report
+**/test/results
