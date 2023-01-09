@@ -31,7 +31,7 @@
     "serverless": "^3.0.0",
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-esbuild": "^1.25.0",
-    "serverless-offline": "^8.5.0",
+    "serverless-offline": "^8.8.1",
     "serverless-plugin-typescript": "^2.1.1",
     "serverless-s3-local": "^0.6.21",
     "ts-jest": "^27.1.3",
